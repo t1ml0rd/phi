@@ -1,0 +1,215 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #0B0F15;
+  color: #f1f5f9;
+  overflow-x: hidden;
+}
+
+.App {
+  position: relative;
+  min-height: 100vh;
+}
+
+/* Custom scrollbar for dark theme */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(30, 41, 59, 0.5);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 229, 255, 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 229, 255, 0.5);
+}
+
+/* Neural network thinking animation */
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(0, 229, 255, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(0, 229, 255, 0.8), 0 0 30px rgba(162, 89, 255, 0.4);
+  }
+}
+
+.neural-pulse {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Particle animation */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.floating-particle {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Gradient text animations */
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.gradient-animate {
+  background-size: 200% 200%;
+  animation: gradient-shift 4s ease infinite;
+}
+
+/* Physics visualization styles */
+.physics-diagram svg {
+  filter: drop-shadow(0 0 10px rgba(0, 229, 255, 0.3));
+}
+
+/* Math formula styling */
+.katex {
+  color: #00E5FF !important;
+  font-size: 1.2em;
+}
+
+.katex .base {
+  color: #00E5FF !important;
+}
+
+/* Custom button hover effects */
+.btn-physics {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.btn-physics::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transition: left 0.5s;
+}
+
+.btn-physics:hover::before {
+  left: 100%;
+}
+
+/* Loading states */
+.loading-dots {
+  display: inline-block;
+}
+
+.loading-dots::after {
+  content: '';
+  animation: loading-dots 1.5s steps(4, end) infinite;
+}
+
+@keyframes loading-dots {
+  0%, 20% {
+    content: '';
+  }
+  40% {
+    content: '.';
+  }
+  60% {
+    content: '..';
+  }
+  80%, 100% {
+    content: '...';
+  }
+}
+
+/* Card hover effects */
+.card-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0, 229, 255, 0.1);
+}
+
+/* Focus styles for accessibility */
+button:focus,
+input:focus,
+select:focus {
+  outline: 2px solid #00E5FF;
+  outline-offset: 2px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .text-slate-300 {
+    color: #ffffff;
+  }
+  .text-slate-400 {
+    color: #e5e5e5;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Dark mode enhancements */
+.dark-glass {
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 229, 255, 0.1);
+}
+
+/* Task generation progress */
+.progress-glow {
+  box-shadow: 0 0 20px rgba(0, 229, 255, 0.4);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  h1 {
+    font-size: 3rem;
+  }
+  
+  .physics-diagram svg {
+    max-width: 100%;
+    height: auto;
+  }
+}
